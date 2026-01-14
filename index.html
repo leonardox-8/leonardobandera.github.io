@@ -2,124 +2,186 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Leonardo Bandera</title>
+  <meta name="description" content="Leonardo Bandera — theoretical machine learning, generative models, computational neuroscience." />
   <style>
+    :root {
+      --text: #111;
+      --muted: #555;
+      --link: #1a4fff;
+      --rule: #e8e8e8;
+      --bg: #fff;
+    }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       max-width: 900px;
       margin: 40px auto;
       padding: 0 20px;
       line-height: 1.6;
-      color: #111;
+      color: var(--text);
+      background: var(--bg);
     }
-    h1, h2, h3 {
-      font-weight: 600;
-    }
-    a {
-      color: #1a4fff;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
+    h1, h2, h3 { font-weight: 600; line-height: 1.25; }
+    h1 { margin-bottom: 8px; }
+    h2 { margin-top: 38px; margin-bottom: 14px; }
+    h3 { margin-top: 20px; margin-bottom: 6px; font-size: 1.05rem; }
+    p { margin: 10px 0; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
     nav {
-      margin-bottom: 40px;
+      margin: 22px 0 32px;
+      padding: 10px 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
     }
-    nav a {
-      margin-right: 20px;
-      font-weight: 500;
+    nav a { margin-right: 18px; font-weight: 500; }
+    .lead { color: var(--muted); }
+    .section { margin-bottom: 42px; }
+    .project { margin-bottom: 22px; }
+    .meta { color: var(--muted); font-size: 0.95rem; }
+    .status { font-style: italic; color: var(--muted); }
+    .links { margin-top: 6px; }
+    .links a { margin-right: 14px; }
+    .pill {
+      display: inline-block;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 2px 10px;
+      margin-right: 8px;
+      font-size: 0.85rem;
+      color: var(--muted);
     }
-    .section {
-      margin-bottom: 50px;
+    .small { font-size: 0.95rem; }
+    footer {
+      margin-top: 44px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 0.95rem;
     }
-    .project {
-      margin-bottom: 25px;
-    }
-    .status {
-      font-style: italic;
-      color: #555;
+    @media (max-width: 520px) {
+      nav a { display: inline-block; margin: 6px 14px 6px 0; }
     }
   </style>
 </head>
+
 <body>
-
-  <h1>Leonardo Bandera</h1>
-  <p>
-    MSc student in Artificial Intelligence at Bocconi University.<br />
-    Interested in theoretical machine learning, generative models, and computational neuroscience.
-  </p>
-
-  <nav>
-    <a href="#research">Research</a>
-    <a href="#projects">Projects</a>
-    <a href="#cv">CV</a>
-    <a href="mailto:leonardo.bandera@studbocconi.it">Email</a>
-  </nav>
-
-  <div id="research" class="section">
-    <h2>Research in Progress</h2>
-
-    <div class="project">
-      <h3>A Solvable Model of Generative Diffusion and the Memorization Phenomenon</h3>
-      <p class="status">Manuscript in preparation (with C. Lucibello, F. Elgorni, B. Annesi)</p>
-      <p>
-        We study the training dynamics of score-based diffusion models in analytically tractable random-feature architectures.
-        Using tools from random matrix theory and spectral analysis, we identify distinct learning regimes governed by
-        eigenvalue transitions of the empirical Gram matrix and relate them to memorization phenomena.
-      </p>
-      <p>
-        Detailed derivations and code will be released upon submission.
-      </p>
-    </div>
-
-    <div class="project">
-      <h3>Balanced Excitatory–Inhibitory Networks Beyond the Classical Brunel Model</h3>
-      <p class="status">Manuscript in preparation (with N. Brunel, G. Bruno)</p>
-      <p>
-        We extend the classical Brunel model by explicitly modeling distinct excitatory and inhibitory neuronal populations.
-        Through mean-field analysis and numerical simulations, we study stability and collective dynamics in balanced
-        recurrent networks.
-      </p>
-      <p>
-        Code and additional details will be made available upon submission.
-      </p>
-    </div>
-  </div>
-
-  <div id="projects" class="section">
-    <h2>Selected Projects</h2>
-
-    <div class="project">
-      <h3>Football Broadcast to Minimap Transformation</h3>
-      <p>
-        Computer vision system for extracting spatial representations from broadcast football footage.
-        The project combines geometric reasoning with learning-based player detection.
-      </p>
-    </div>
-
-    <div class="project">
-      <h3>Cancer Genome Atlas (TCGA) Analysis</h3>
-      <p>
-        Machine learning analysis of large-scale genomic datasets aimed at identifying structure and correlations
-        in cancer-related data.
-      </p>
-    </div>
-
-    <div class="project">
-      <h3>Quantitative Analysis of Ideological Shifts in the Italian Senate</h3>
-      <p>
-        Statistical modeling of voting behavior and ideological drift using parliamentary roll-call data.
-      </p>
-    </div>
-  </div>
-
-  <div id="cv" class="section">
-    <h2>Curriculum Vitae</h2>
-    <p>
-      <a href="CV_Leonardo_Bandera.pdf">Download CV (PDF)</a>
+  <header>
+    <h1>Leonardo Bandera</h1>
+    <p class="lead">
+      MSc student in Artificial Intelligence at Bocconi University.<br />
+      Theoretical machine learning · generative models · computational neuroscience
     </p>
-  </div>
+    <p class="small">
+      <a href="mailto:leonardo.bandera@studbocconi.it">leonardo.bandera@studbocconi.it</a>
+      &nbsp;·&nbsp;
+      <a href="https://leonardobandera.github.io">leonardobandera.github.io</a>
+    </p>
 
+    <nav aria-label="Primary">
+      <a href="#research">Research</a>
+      <a href="#projects">Selected past projects</a>
+      <a href="#cv">CV</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===================== Research ===================== -->
+    <section id="research" class="section">
+      <h2>Research</h2>
+
+      <div class="project">
+        <span class="pill">Diffusion theory</span>
+        <h3>A Solvable Model of Generative Diffusion and the Memorization Phenomenon</h3>
+        <p class="status">Manuscript in preparation (with C. Lucibello, F. Elgorni, B. Annesi)</p>
+        <p class="meta">
+          Theory of training dynamics in score-based diffusion models using analytically tractable
+          random-feature architectures; spectral transitions and structured data regimes.
+        </p>
+        <div class="links">
+          <!-- Replace filenames with your actual paths in the repo -->
+          <a href="slides_diffusion.pdf">Slides (PDF)</a>
+          <a href="thesis_diffusion.pdf">MSc thesis (PDF)</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <span class="pill">Computational neuroscience</span>
+        <h3>Balanced Excitatory–Inhibitory Networks Beyond the Classical Brunel Model</h3>
+        <p class="status">Manuscript in preparation (with N. Brunel, G. Bruno)</p>
+        <p class="meta">
+          Mean-field analysis and simulations of balanced recurrent networks with explicit excitatory and
+          inhibitory populations; stability and collective dynamics in fluctuation-driven regimes.
+        </p>
+        <div class="links">
+          <a href="https://huggingface.co/spaces/giac0/thesis" target="_blank" rel="noopener noreferrer">
+            Technical notes (external)
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Selected past projects ===================== -->
+    <section id="projects" class="section">
+      <h2>Selected past projects</h2>
+      <p class="meta">Selected coursework and exploratory projects (2022–2023). PDF reports only.</p>
+
+      <div class="project">
+        <span class="pill">Computer vision</span>
+        <h3>Football Broadcast to Minimap Transformation</h3>
+        <p class="meta">
+          System to infer a minimap state from broadcast footage using segmentation, geometric primitives
+          and homography estimation.
+        </p>
+        <div class="links">
+          <a href="project_football_minimap_report.pdf">Report (PDF)</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <span class="pill">NLP</span>
+        <h3>A Quantitative Analysis on the Italian Senate</h3>
+        <p class="meta">
+          Text-based modeling of ideological shifts in the Italian Senate (1948–2024) using doc2vec and
+          BERT-style regressors.
+        </p>
+        <div class="links">
+          <a href="project_italian_senate_report.pdf">Report (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CV ===================== -->
+    <section id="cv" class="section">
+      <h2>Curriculum Vitae</h2>
+      <p>
+        <a href="CV_Leonardo_Bandera.pdf">Download CV (PDF)</a>
+      </p>
+    </section>
+
+    <!-- ===================== Contact ===================== -->
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>
+        Email is best:
+        <a href="mailto:leonardo.bandera@studbocconi.it">leonardo.bandera@studbocconi.it</a>
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>
+      © <span id="year"></span> Leonardo Bandera
+    </p>
+  </footer>
+
+  <script>
+    // Tiny convenience: keep the footer year up to date.
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
