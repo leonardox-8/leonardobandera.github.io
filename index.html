@@ -4,81 +4,231 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Leonardo Bandera</title>
-  <meta name="description" content="Leonardo Bandera — theoretical machine learning, generative models, computational neuroscience." />
+  <meta name="description" content="Leonardo Bandera — theoretical machine learning, score-based diffusion models, statistical physics, computational neuroscience." />
+
   <style>
-    :root {
-      --text: #111;
-      --muted: #555;
-      --link: #1a4fff;
-      --rule: #e8e8e8;
-      --bg: #fff;
+    :root{
+      --text:#111;
+      --muted:#555;
+      --muted2:#6b6b6b;
+      --link:#1a4fff;
+      --rule:#e8e8e8;
+      --bg:#fff;
+      --chip:#f6f6f6;
+      --card:#fcfcfc;
+      --shadow: 0 1px 0 rgba(0,0,0,.03);
     }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-      color: var(--text);
-      background: var(--bg);
+
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      max-width:900px;
+      margin:42px auto;
+      padding:0 20px;
+      line-height:1.65;
+      color:var(--text);
+      background:var(--bg);
+      text-rendering:optimizeLegibility;
     }
-    h1, h2, h3 { font-weight: 600; line-height: 1.25; }
-    h1 { margin-bottom: 8px; }
-    h2 { margin-top: 38px; margin-bottom: 14px; }
-    h3 { margin-top: 20px; margin-bottom: 6px; font-size: 1.05rem; }
-    p { margin: 10px 0; }
-    a { color: var(--link); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    nav {
-      margin: 22px 0 32px;
-      padding: 10px 0;
-      border-top: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
+
+    h1,h2,h3{ font-weight:650; line-height:1.2; letter-spacing:-0.01em; }
+    h1{ margin:0 0 10px; font-size:2rem; }
+    h2{ margin:40px 0 14px; font-size:1.25rem; }
+    h3{ margin:18px 0 6px; font-size:1.05rem; }
+
+    p{ margin:10px 0; }
+    a{ color:var(--link); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    .muted{ color:var(--muted); }
+    .muted2{ color:var(--muted2); }
+    .small{ font-size:.96rem; }
+    .tiny{ font-size:.90rem; }
+
+    header{
+      margin-bottom:28px;
     }
-    nav a { margin-right: 18px; font-weight: 500; }
-    .lead { color: var(--muted); }
-    .section { margin-bottom: 42px; }
-    .project { margin-bottom: 22px; }
-    .meta { color: var(--muted); font-size: 0.95rem; }
-    .status { font-style: italic; color: var(--muted); }
-    .links { margin-top: 6px; }
-    .links a { margin-right: 14px; }
-    .pill {
-      display: inline-block;
-      border: 1px solid var(--rule);
-      border-radius: 999px;
-      padding: 2px 10px;
-      margin-right: 8px;
-      font-size: 0.85rem;
-      color: var(--muted);
+
+    .topline{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
     }
-    .small { font-size: 0.95rem; }
-    footer {
-      margin-top: 44px;
-      padding-top: 18px;
-      border-top: 1px solid var(--rule);
-      color: var(--muted);
-      font-size: 0.95rem;
+
+    .contactline{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px 16px;
+      align-items:center;
+      margin-top:10px;
+      font-size:.98rem;
+      color:var(--muted);
     }
-    @media (max-width: 520px) {
-      nav a { display: inline-block; margin: 6px 14px 6px 0; }
+
+    .contactline a{ color:var(--link); }
+    .contactline span{ color:var(--muted2); }
+
+    nav{
+      margin:22px 0 0;
+      padding:10px 0;
+      border-top:1px solid var(--rule);
+      border-bottom:1px solid var(--rule);
+    }
+    nav a{
+      margin-right:18px;
+      font-weight:560;
+      font-size:.98rem;
+      color:var(--text);
+    }
+
+    .hero{
+      margin-top:14px;
+    }
+
+    .tagrow{
+      margin-top:10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .pill{
+      display:inline-block;
+      border:1px solid var(--rule);
+      border-radius:999px;
+      padding:2px 10px;
+      font-size:.85rem;
+      color:var(--muted);
+      background:var(--chip);
+      box-shadow:var(--shadow);
+      white-space:nowrap;
+    }
+
+    .section{ margin-bottom:44px; }
+
+    .card{
+      border:1px solid var(--rule);
+      border-radius:14px;
+      padding:16px 16px 14px;
+      background:var(--card);
+      box-shadow:var(--shadow);
+      margin:14px 0;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:.96rem;
+      margin-top:6px;
+    }
+
+    .status{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 12px;
+      align-items:center;
+      margin-top:6px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .status b{
+      color:var(--text);
+      font-weight:600;
+    }
+
+    .links{
+      margin-top:10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 14px;
+      align-items:center;
+      font-size:.96rem;
+    }
+
+    .links a{
+      font-weight:560;
+    }
+
+    details{
+      margin-top:10px;
+      border-top:1px dashed var(--rule);
+      padding-top:10px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight:600;
+      color:var(--text);
+    }
+    details p{
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:.96rem;
+    }
+
+    ul{
+      margin:10px 0 0 18px;
+      padding:0;
+    }
+    li{ margin:6px 0; }
+
+    footer{
+      margin-top:44px;
+      padding-top:18px;
+      border-top:1px solid var(--rule);
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    @media (max-width:520px){
+      nav a{ display:inline-block; margin:6px 14px 6px 0; }
+      .topline{ align-items:flex-start; }
     }
   </style>
 </head>
 
 <body>
   <header>
-    <h1>Leonardo Bandera</h1>
-    <p class="lead">
-      MSc student in Artificial Intelligence at Bocconi University.<br />
-      Physics of complex systems x machine learning · generative models · computational neuroscience
-    </p>
-    <p class="small">
-      <a href="mailto:leonardo.bandera@studbocconi.it">leonardo.bandera@studbocconi.it</a>
-    </p>
+    <div class="topline">
+      <h1>Leonardo Bandera</h1>
+      <div class="muted small">
+        MSc in Artificial Intelligence · Bocconi University
+      </div>
+    </div>
+
+    <div class="hero">
+      <p class="muted">
+        I work on <b>theoretical machine learning</b> at the interface of
+        <b>statistical physics</b> and <b>generative modeling</b>, with a focus on
+        <b>score-based diffusion</b>, <b>memorization vs. generalization</b>, and
+        <b>training dynamics</b>. I’m also interested in <b>computational neuroscience</b>
+        (balanced recurrent networks).
+      </p>
+
+      <div class="tagrow" aria-label="Keywords">
+        <span class="pill">diffusion models</span>
+        <span class="pill">implicit regularization</span>
+        <span class="pill">random features</span>
+        <span class="pill">random matrix theory</span>
+        <span class="pill">statistical physics of learning</span>
+        <span class="pill">balanced E–I networks</span>
+      </div>
+
+      <div class="contactline">
+        <a href="mailto:leonardo.bandera@studbocconi.it">leonardo.bandera@studbocconi.it</a>
+        <span>·</span>
+        <!-- Add these if you have them; otherwise remove -->
+        <a href="https://github.com/leonardox-8" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <span>·</span>
+        <a href="https://scholar.google.com/" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        <span>·</span>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    </div>
 
     <nav aria-label="Primary">
       <a href="#research">Research</a>
+      <a href="#thesis">Thesis</a>
       <a href="#projects">Selected past projects</a>
       <a href="#cv">CV</a>
       <a href="#contact">Contact</a>
@@ -91,27 +241,53 @@
     <section id="research" class="section">
       <h2>Research</h2>
 
-      <div class="project">
-        <h3>A Solvable Model of Generative Diffusion and the Memorization Phenomenon</h3>
-        <p class="status">Manuscript in preparation (with C. Lucibello, F. Elgorni, B. Annesi)</p>
-        <p class="meta">
-          Theory of training dynamics in score-based diffusion models using analytically tractable
-          random-feature architectures; spectral transitions and structured data regimes.
-        </p>
-        <div class="links">
-          <!-- Replace filenames with your actual paths in the repo -->
-          <a href="slides.pdf">Slides (PDF)</a>
-          <a href="thesis-26.pdf">MSc thesis (PDF)</a>
+      <div class="card">
+        <h3>Random-Feature Score-Based Diffusion on Structured Data</h3>
+
+        <div class="status">
+          <span><b>Status:</b> Manuscript in preparation</span>
+          <span class="muted2">·</span>
+          <span><b>With:</b> C. Lucibello, F. Elgorni, B. Annesi</span>
         </div>
+
+        <p class="meta">
+          Theoretical characterization of backward diffusion dynamics and training dynamics in analytically
+          tractable score models. Emphasis on structured data (Gaussian mixtures), spectral phenomena, and
+          detectability transitions (BBP-type).
+        </p>
+
+        <ul class="meta">
+          <li>Structured regimes as low-rank perturbations of the Gaussian case; outlier control via RMT.</li>
+          <li>Connect training timescales to generalization vs. memorization in the small-time regime.</li>
+        </ul>
+
+        <div class="links">
+          <!-- Replace placeholders as needed -->
+          <a href="slides.pdf">Slides (PDF)</a>
+          <a href="#thesis">Related thesis (below)</a>
+          <!-- If later you have a preprint: <a href="paper.pdf">Preprint (PDF)</a> -->
+        </div>
+
+        <p class="tiny muted2" style="margin-top:10px;">
+          Note: this manuscript strongly overlaps with my MSc thesis, but extends it with a refined treatment of
+          structured data regimes and additional results; it is not the same document.
+        </p>
       </div>
 
-      <div class="project">
-        <h3>Balanced Excitatory–Inhibitory Networks Beyond the Classical Brunel Model</h3>
-        <p class="status">Manuscript in preparation (with N. Brunel, G. Bruno)</p>
+      <div class="card">
+        <h3>Balanced Excitatory–Inhibitory Recurrent Networks Beyond the Classical Brunel Model</h3>
+
+        <div class="status">
+          <span><b>Status:</b> Manuscript in preparation</span>
+          <span class="muted2">·</span>
+          <span><b>With:</b> N. Brunel, G. Bruno</span>
+        </div>
+
         <p class="meta">
-          Mean-field analysis and simulations of balanced recurrent networks with explicit excitatory and
-          inhibitory populations; stability and collective dynamics in fluctuation-driven regimes.
+          Mean-field analysis and simulations of balanced recurrent networks with explicit excitatory and inhibitory
+          populations; stability and collective dynamics in fluctuation-driven regimes.
         </p>
+
         <div class="links">
           <a href="https://huggingface.co/spaces/giac0/thesis" target="_blank" rel="noopener noreferrer">
             Technical notes (external)
@@ -120,30 +296,87 @@
       </div>
     </section>
 
+    <!-- ===================== Thesis ===================== -->
+    <section id="thesis" class="section">
+      <h2>Thesis</h2>
+
+      <div class="card">
+        <h3>A Solvable Model of Generative Diffusion and the Memorization Phenomenon</h3>
+
+        <div class="status">
+          <span><b>MSc thesis:</b> Bocconi University</span>
+          <span class="muted2">·</span>
+          <span><b>Supervisor:</b> C. Lucibello</span>
+        </div>
+
+        <p class="meta">
+          This thesis studies why learning the empirical score would imply memorization, and how real diffusion
+          systems avoid this degeneracy through architectural constraints and optimization dynamics.
+        </p>
+
+        <div class="links">
+          <a href="thesis-26.pdf">Thesis (PDF)</a>
+          <a href="slides.pdf">Talk slides (PDF)</a>
+        </div>
+
+        <details>
+          <summary>Abstract</summary>
+          <p>
+            This thesis investigates the mechanisms underlying memorization and generalization in score-based diffusion models.
+            If the empirical score, namely the empirical loss minimizer, was used during generation, diffusion models would merely
+            reproduce training samples. Yet, state-of-the-art systems consistently avoid this degeneracy, generating novel and coherent data.
+            Understanding this apparent paradox requires analyzing what the learned score truly represents, and how architectural and dynamical
+            constraints shape it. Building on recently developed theoretical frameworks, we study these questions within the analytically tractable
+            setting of Random Feature Neural Networks (RFNNs). Through both analytical derivations and numerical experiments, we show that
+            generalization emerges from the interplay between architecture and optimization dynamics. The ratio of parameters to data controls an
+            architectural phase transition between under- and over-parameterized regimes, while the training trajectory itself induces implicit
+            dynamical regularization, separating fast generalization from slow memorization timescales. We then extend this framework in two
+            directions. First, we introduce time-integrated RFNNs with bias and skip connections, bridging the gap between solvable models and
+            realistic diffusion architectures, and revealing how temporal conditioning modulates the balance between generalization and memorization.
+            Second, we analyze structured data through Gaussian mixtures, uncovering a Baik-Ben Arous-Péché (BBP) transition that marks the
+            spectral onset of signal detectability. Together, these results support a unified picture in which diffusion models generalize not by perfectly
+            reproducing empirical scores, but by dynamically and imperfectly learning smooth score fields shaped by architecture, data, and optimization dynamics.
+          </p>
+        </details>
+      </div>
+    </section>
+
     <!-- ===================== Selected past projects ===================== -->
     <section id="projects" class="section">
       <h2>Selected past projects</h2>
-      <p class="meta">Selected coursework and exploratory projects (2022–2023). PDF reports only.</p>
+      <p class="meta">
+        Selected coursework and exploratory projects (2022–2023). Included for completeness; my main focus is theoretical research above.
+      </p>
 
-      <div class="project">
-        <span class="pill">Computer vision</span>
+      <div class="card">
+        <div class="tagrow" style="margin-top:0;">
+          <span class="pill">computer vision</span>
+          <span class="pill">geometry</span>
+        </div>
+
         <h3>Football Broadcast to Minimap Transformation</h3>
         <p class="meta">
-          System to infer a minimap state from broadcast footage using segmentation, geometric primitives
+          System to infer a minimap state from broadcast footage using segmentation, geometric primitives,
           and homography estimation.
         </p>
+
         <div class="links">
           <a href="Bruno_Bandera_project.pdf">Report (PDF)</a>
         </div>
       </div>
 
-      <div class="project">
-        <span class="pill">NLP</span>
-        <h3>A Quantitative Analysis on the Italian Senate</h3>
+      <div class="card">
+        <div class="tagrow" style="margin-top:0;">
+          <span class="pill">NLP</span>
+          <span class="pill">representation learning</span>
+        </div>
+
+        <h3>A Quantitative Analysis on the Italian Senate (1948–2024)</h3>
         <p class="meta">
-          Text-based modeling of ideological shifts in the Italian Senate (1948–2024) using doc2vec and
-          BERT-style regressors.
+          Text-based modeling of ideological shifts using doc2vec and BERT-style regressors; dataset construction from
+          parliamentary transcripts.
         </p>
+
         <div class="links">
           <a href="project_report_1.pdf">Report (PDF)</a>
         </div>
@@ -153,7 +386,7 @@
     <!-- ===================== CV ===================== -->
     <section id="cv" class="section">
       <h2>Curriculum Vitae</h2>
-      <p>
+      <p class="small">
         <a href="LEONARDO BANDERA - CV.pdf">Download CV (PDF)</a>
       </p>
     </section>
@@ -161,7 +394,7 @@
     <!-- ===================== Contact ===================== -->
     <section id="contact" class="section">
       <h2>Contact</h2>
-      <p>
+      <p class="small">
         Email is best:
         <a href="mailto:leonardo.bandera@studbocconi.it">leonardo.bandera@studbocconi.it</a>
       </p>
@@ -170,13 +403,10 @@
   </main>
 
   <footer>
-    <p>
-      © <span id="year"></span> Leonardo Bandera
-    </p>
+    <p>© <span id="year"></span> Leonardo Bandera</p>
   </footer>
 
   <script>
-    // Tiny convenience: keep the footer year up to date.
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
